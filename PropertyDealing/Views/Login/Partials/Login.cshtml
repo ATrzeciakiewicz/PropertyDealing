@@ -1,0 +1,15 @@
+﻿@using PropertyDealing.Models
+@model LoginViewModel
+
+<form>
+    <div class="input-group">
+        <input type="text" class="form-control" name="user" placeholder="Login">
+        <span class="input-group-addon"><i class="ion-ios-person"></i></span>
+    </div>
+    <div class="input-group">
+        @*@Html.TextBoxFor(model => model.Password, new { @class = "form-control", placeholder = "Hasło" })*@
+        <input type="password" class="form-control" name="pass" placeholder="Hasło">
+        <span class="input-group-addon"><i class="ion-android-lock"></i></span>
+    </div>
+    <button type="submit" class="btn">Zaloguj</button>
+</form>

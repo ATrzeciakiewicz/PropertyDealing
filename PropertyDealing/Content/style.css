@@ -1,0 +1,321 @@
+/*--GLOBAL STYLES--*/
+
+html,
+body {
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+.no-lr-padding {
+    padding-left:0;
+    padding-right:0;
+}
+button.btn,
+.input-group input,
+.input-group-addon {
+    height: 40px;
+    border-radius: 0;
+}
+
+button.btn {
+    color: #fff;
+}
+
+
+/*-- inputs --*/
+
+input,
+input.form-control {
+    border-radius: 0;
+}
+
+.input-group input {
+    box-shadow: none;
+    border-color: #fff;
+}
+
+.input-group-addon {
+    border: none;
+    background: #333;
+    color: #fff;
+    font-size: 22px;
+    border-radius: 0;
+}
+
+span.input-group-addon,
+.input-group input {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    -webkit-box-shadow: none;
+    outline: -webkit-focus-ring-color auto 0px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border: solid 1px #333;
+}
+
+
+/*-- extra colors--*/
+
+.f-yellow {
+    color: #fac705;
+}
+/*-- nav elements--*/
+.navbar-inverse .navbar-nav>li.message-new>a {
+    color:#ffbf00;
+}
+.message-num {
+     background-color:#ffbf00;
+    color:  #333;
+    padding:2px 6px;
+    border-radius: 50%;
+    margin-right: 3px;
+    font-size:11px;
+}
+
+/*--LOGIN PAGE---------------------------------*/
+
+
+/*--full size bg--*/
+
+.login-page {
+    background: no-repeat fixed center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.container-fluid.login-page {
+    padding: 0px;
+}
+
+
+/*--login box centering--*/
+
+.login-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40%;
+    min-width: 350px;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1;
+}
+
+.login-box {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    background: rgba(200, 200, 200, .7);
+    padding: 60px;
+    border-radius: 0px;
+}
+
+
+/*--login box content--*/
+
+.login-header {
+    padding-bottom: 10px;
+    display: block;
+}
+
+.login-box .input-group {
+    margin: 10px auto;
+}
+
+.login-box .btn {
+    width: 100%;
+    background-color: #333;
+    text-transform: uppercase;
+}
+
+.login-footer {
+    color: #fff;
+    padding: 10px;
+}
+
+.login-footer a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+
+/*--------------------------------------*/
+
+
+/*--RWD support--*/
+
+@media (max-width:991px) {
+    .login-wrapper {
+        width: 60%;
+    }
+    .login-header .title {
+        text-align: center;
+    }
+}
+
+
+/*----INDEX--------------------*/
+
+header {
+    background: url('../img/login-bg-2.jpeg');
+    background-position: bottom;
+    background-size: cover;
+    width: 100%;
+    color: #fff;
+}
+
+.filters-bar {
+    background-color: rgba(0, 0, 0, .5);
+    bottom: 0;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    width: 100%;
+    height: 100%;
+}
+
+.filters-bar input {
+    background-color: rgba(255, 255, 255, .8);
+    color: #000;
+}
+
+header .btn, .btn {
+    background-color: #ffbf00;
+    border-radius: 0;
+}
+
+.main-content {
+    padding-bottom: 30px;
+}
+
+.last-offers {
+    background-color: #f3f3f3;
+    padding-bottom: 30px;
+}
+
+.offer .img-wrapper {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+}
+
+.offer img {
+    height: 100%;
+    width: auto;
+}
+
+@media (max-width: 991px) {
+    .offer img {
+    height: auto;    
+    width: 100%;
+}
+}
+
+.price {
+    position: absolute;
+    bottom: 0;
+    text-transform: uppercase;
+    /*    background-color: rgba(245, 245, 245, .9);*/
+    background-color: rgba(0, 0, 0, .8);
+    color: #ffbf00;
+    width: 100%;
+    padding: 10px 30px;
+    text-align: right;
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.btn-place {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.btn-place .btn {
+    background-color: #ffbf00;
+    border-radius: 0;
+}
+
+.btn[disabled] {
+    cursor: default;
+    background-image: none;
+    opacity: 0.65;
+    filter: alpha(opacity=65);
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    color: #333;
+    background-color: #E6E6E6;
+}
+
+.offer {
+    border: 1px solid #e6e6e6;
+    margin-bottom: 10px;
+}
+
+.offer-details {
+    padding: 10px 30px;
+}
+.stripes {
+        background-color: #e2e2e2;
+}
+.stripes span {
+
+    padding: 5px 15px;
+    display: block;
+}
+
+.stripes div.light {
+    background-color: #f5f5f5;
+}
+.det-name {
+    max-width: 50%;
+    float: left;
+}
+
+.det-value {
+    text-align: right;
+    font-weight: 900;
+}
+/*-------- mailbox----------*/
+
+.email-box th {
+    color: #fff;
+    background-color: #222;
+}
+.email-box tr:hover {
+    background-color: #e2e2e2;
+      cursor: pointer;
+}
+.email-box .unreaded {
+
+    background-color: rgba(255, 191, 0, 0.7);
+}
+
+.email-box .phone {
+    font-weight: 900;
+}
+.email-box i {
+    background-color: #333;
+    color: #ffbf00;
+    padding:5px 15px;
+    font-size: 22px;
+}
+
+.delete-email:hover i {
+    color: #ff0000;
+    cursor: pointer;
+}
+footer {
+    background-color: #333;
+    color: #fff;
+    font-size: 11px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: right;
+}

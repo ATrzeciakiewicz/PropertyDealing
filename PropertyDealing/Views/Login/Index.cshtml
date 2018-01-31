@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+
+    <div class="login-wrapper">
+        <div class="login-box">
+            <div class="row login-header">
+                <p>Zaloguj się do Nieruchomości.pl</p>
+            </div>
+
+            
+            @if (ViewData["registered"].Equals(true))
+            {
+                @Html.Partial("~/Views/Login/Partials/Register.cshtml")
+            }
+            else
+            {
+                @Html.Partial("~/Views/Login/Partials/Login.cshtml")
+            }
+
+
+
+
+        </div>
+        <div class="login-footer"> Nie masz konta? <a href="#" class="f-yellow" onclick="return PropertyDealing.Register();"><strong>Zarejestruj się</strong> </a> </div>
+    </div>
