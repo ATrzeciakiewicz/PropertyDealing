@@ -29,12 +29,12 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                            <a class="navbar-brand" href="#">Nieruchomości.pl</a>
+                            <a class="navbar-brand" href="@Url.Action("Index", "Oferts")">Nieruchomości.pl</a>
                         </div>
                         <div class="collapse navbar-collapse">
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a href="@Url.Action("Index", "Login")"> Zarządzaj ofertami</a></li>
-                                <li class="message-new"><a href="@Url.Action("Index", "Login")"> <span class="message-num">2</span>Wiadomości</a></li>
+                                <li><a href="@Url.Action("Index", "Edit")"> Zarządzaj ofertami</a></li>
+                                <li class="message-new"><a href="@Url.Action("Index", "Mailbox")"> <span class="message-num">2</span>Wiadomości</a></li>
                                 <li><a class="btn" href="@Url.Action("Index", "Login")"> Wyloguj  <i class="ion-android-exit"></i></a></li>
                             </ul>
                         </div>
@@ -42,11 +42,16 @@
                 </nav>
             </div>
         </header>
-        <section style="margin-top: 100px">
-            <div class="container">
-                @RenderBody()
-            </div>
+        <section style="margin-top: 50px">
+            @*<div class="container">*@
+            @RenderBody()
+            @*</div>*@
         </section>
+        <footer>
+            <div class="container">
+                <p><span class="f-yellow">Aplikacja wspomagająca handel nieruchomościami.</span> AUTOR Agnieszka Trzeciakiewicz 2018</p>
+            </div>
+        </footer>
     </div>
 
     @RenderSection("scripts", required: false)

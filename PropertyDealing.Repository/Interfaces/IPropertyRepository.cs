@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 
 namespace PropertyDealing.Repository.Interfaces
 {
-    public interface IRepositoryManager
+    public interface IPropertyRepository : IRepository<Property>
     {
-        IRepository<Property> PropertyRepository { get; }
     }
 }

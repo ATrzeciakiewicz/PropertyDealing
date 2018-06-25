@@ -75,6 +75,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\201802152024092_InitialCreate.cs" />
+    <Compile Include="Migrations\201802152024092_InitialCreate.Designer.cs">
+      <DependentUpon>201802152024092_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802162304228_First migration.cs" />
+    <Compile Include="Migrations\201802162304228_First migration.Designer.cs">
+      <DependentUpon>201802162304228_First migration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802180951442_AddingIsSoldToProperty.cs" />
+    <Compile Include="Migrations\201802180951442_AddingIsSoldToProperty.Designer.cs">
+      <DependentUpon>201802180951442_AddingIsSoldToProperty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802180953444_ChangingIsSoldToProperty.cs" />
+    <Compile Include="Migrations\201802180953444_ChangingIsSoldToProperty.Designer.cs">
+      <DependentUpon>201802180953444_ChangingIsSoldToProperty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802191820505_RemoveUserTable.cs" />
+    <Compile Include="Migrations\201802191820505_RemoveUserTable.Designer.cs">
+      <DependentUpon>201802191820505_RemoveUserTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Property.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="PropertyDealingDbContext.cs" />
@@ -84,6 +105,22 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201802152024092_InitialCreate.resx">
+      <DependentUpon>201802152024092_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802162304228_First migration.resx">
+      <DependentUpon>201802162304228_First migration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802180951442_AddingIsSoldToProperty.resx">
+      <DependentUpon>201802180951442_AddingIsSoldToProperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802180953444_ChangingIsSoldToProperty.resx">
+      <DependentUpon>201802180953444_ChangingIsSoldToProperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802191820505_RemoveUserTable.resx">
+      <DependentUpon>201802191820505_RemoveUserTable.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

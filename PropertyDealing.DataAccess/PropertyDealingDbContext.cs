@@ -29,10 +29,6 @@ namespace PropertyDealing.DataAccess
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<User>()
-                .HasKey(e => e.IdUser)
-                .ToTable("User");
-
             modelBuilder.Entity<Property>()
                 .HasKey(e => e.Id)
                 .ToTable("Property");

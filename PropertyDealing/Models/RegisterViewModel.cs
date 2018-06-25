@@ -8,26 +8,26 @@ namespace PropertyDealing.Models
 {
     public class RegisterViewModel
     {
-        [Required(ErrorMessage = "Enter your email.")]
+        [Required(ErrorMessage = "Podaj swój email.")]
         [EmailAddress]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "Enter your phone number.")]
+        [Required(ErrorMessage = "Podaj swój numer telefonu.")]
         [DataType(DataType.PhoneNumber)]
         public string PhoneNumber { get; set; }
 
-        [Required(ErrorMessage = "Enter your password.")]
+        [Required(ErrorMessage = "Wpisz hasło.")]
         [StringLength(30,
-            ErrorMessage = "{0} must have at least {2} characters",
+            ErrorMessage = "{0} musi mieć przynajmniej {2} znaków",
             MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Hasło")]
         public string Password { get; set; }
 
-        [Required(ErrorMessage = "Enter your password.")]
+        [Required(ErrorMessage = "Powtórz hasło.")]
         [Display(Name = "Confirm password")]
         [Compare("Password",
-            ErrorMessage = "Passwords are not the same.")]
+            ErrorMessage = "Hasła nie są takie same.")]
         [DataType(DataType.Password)]
         public string ConfirmPassword { get; set; }
     }

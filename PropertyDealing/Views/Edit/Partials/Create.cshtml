@@ -1,0 +1,93 @@
+﻿@*@model PropertyDealing.DataAccess.Models.Property*@
+@model IEnumerable<PropertyDealing.Models.PropertyContainer>
+
+
+@using (Html.BeginForm("Create", "Edit", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>Nagłówek oferty</label>
+                    @Html.EditorFor(model => model.FirstOrDefault().Property.Title, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.FirstOrDefault().Property.Title, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label>Cena</label>
+                    @Html.EditorFor(model => model.FirstOrDefault().Property.Price, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.FirstOrDefault().Property.Price, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label>Powierzchnia</label>
+                    @Html.EditorFor(model => model.FirstOrDefault().Property.PropertyArea, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.FirstOrDefault().Property.PropertyArea, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label>Liczba pokoi</label>
+                    @Html.EditorFor(model => model.FirstOrDefault().Property.RoomsNumber, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.FirstOrDefault().Property.RoomsNumber, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label>Kondygnacja</label>
+                    @Html.EditorFor(model => model.FirstOrDefault().Property.Storey, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.FirstOrDefault().Property.Storey, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>Miejscowość</label>
+                    @Html.EditorFor(model => model.FirstOrDefault().Property.City, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.FirstOrDefault().Property.City, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>Ulica</label>
+                    @Html.EditorFor(model => model.FirstOrDefault().Property.Street, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.FirstOrDefault().Property.Street, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-2">
+                <p>Balkon</p>
+                <label class="checkbox-inline">
+                    <input type="checkbox" id="inlineCheckbox1" value="option1"> TAK
+                </label><label class="checkbox-inline">
+                    <input type="checkbox" id="inlineCheckbox1" value="option1"> NIE
+                </label>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="image">Wybierz zdjęcie</label>
+                    <input type="file" class="form-control-file" name="image" id="image">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p>Krótki opis</p>
+                @Html.TextAreaFor(model => model.FirstOrDefault().Property.Description, new { @rows = 3, @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.FirstOrDefault().Property.Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <br>
+        <button class="btn" data-toggle="collapse" data-target="#add-offer">Dodaj</button>
+    }
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+

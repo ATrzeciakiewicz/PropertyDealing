@@ -1,0 +1,301 @@
+﻿@model IEnumerable<PropertyDealing.Models.PropertyContainer>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<header>
+    <section class="filters-bar">
+        <div class="container">
+            <h3>Wyszukaj ofertę</h3>
+
+            <form>
+                <div class="row">
+                    <div class="col-md-3">
+                        <p>Powierzchnia / m2</p>
+                        <input type="text" class="form-control" placeholder="Powierzchnia od">
+                        <input type="text" class="form-control" placeholder="Powierzchnia do">
+                    </div>
+                    <div class="col-md-3">
+                        <p>Cena / zł</p>
+                        <input type="text" class="form-control" placeholder="Cena od">
+                        <input type="text" class="form-control" placeholder="Cena do">
+                    </div>
+                    <div class="col-md-3">
+                        <p>Liczba pokoi</p>
+                        <input type="text" class="form-control" placeholder="Min">
+                        <input type="text" class="form-control" placeholder="Max">
+                    </div>
+                    <div class="col-md-1">
+                        <p>Kondygnacja</p>
+                        <input type="text" class="form-control" placeholder="Piętro">
+                    </div>
+                    <div class="col-md-1">
+                        <p>Balkon</p>
+                        <label class="checkbox-inline"><input type="checkbox" value="">TAK</label>
+                    </div>
+                    <div class="col-md-1">
+                        <p><br></p>
+                        <button type="submit" class="btn">Wyszukaj</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+</header>
+
+<section>
+    <div class="container">
+        <button class="btn" data-toggle="collapse" data-target="#add-offer">Dodaj nową ofertę</button>
+        <div id="add-offer" class="collapse">
+            <br>
+            @Html.Partial("~/Views/Edit/Partials/Create.cshtml")
+        </div>
+    </div>
+</section>
+
+<hr>
+
+<section class="main-content">
+    <div class="container">
+        <h3>Lista twoich ofert</h3>
+
+        @foreach (var item in Model)
+    {
+        <div class="row offer">
+            <div class="col-md-4 no-lr-padding">
+                <div class="img-wrapper">
+                    @if (item.Property.Image != null)
+                    {
+                        var base64 = Convert.ToBase64String(item.Property.Image);
+                        var imgSrc = String.Format("data:image;base64,{0}", base64);
+                        <img src="@imgSrc">
+                    }
+                <span class="price">cena: @item.Property.Price.ToString("N0") zł</span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="offer-details">
+                    <h4>@item.Property.Title</h4><br>
+                    <div class="stripes">
+                        <span class="det-name">Powierzchnia</span><span class="det-value">@item.Property.PropertyArea m2</span>
+                        <div class="light"><span class="det-name light">Lokalizacja</span><span class="det-value">@item.Property.City</span></div>
+                        <span class="det-name">Ulica</span><span class="det-value">@item.Property.Street</span>
+                        <div class="light"> <span class="det-name">Liczba pokoi</span><span class="det-value">@item.Property.RoomsNumber</span></div>
+                        <span class="det-name">Kondygnacja</span><span class="det-value">@item.Property.Storey</span>
+                        @if(@item.Property.IsBalcony)
+                        {
+                            <div class="light"><span class="det-name">Balkon</span><span class="det-value">jest</span></div>
+                        }
+                        else
+                        {
+                            <div class="light"><span class="det-name">Balkon</span><span class="det-value">brak</span></div>
+                        }
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <button type="button" class="btn">Edytuj</button>
+                <button type="button" class="btn">Sprzedane</button>
+                <button type="button" class="btn">Usuń</button>
+
+                @*@using (Html.BeginForm("Delete", "Edit", FormMethod.Post, new { id = item.Property.Id }))
+            {
+                    @Html.AntiForgeryToken()
+                    <button type="button" class="btn">Usuń</button>
+        }*@
+
+
+                <br><br>
+                <span>@item.Property.Description</span>
+            </div>
+        </div>
+}
+
+    </div>
+</section>
+
+<section class="last-offers">
+    <div class="container">
+        <h3>Ostatnio przeglądane oferty</h3><br>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="offer">
+                    <div class="img-wrapper">
+                        <img src="Content/img/photo-01.jpeg">
+                        <div class="btn-place"><button type="button" class="btn">Chcę kupić</button></div>
+                        <span class="price">cena: 330 000 zł</span>
+                    </div>
+                    <div class="offer-details">
+                        <h4>3-pokoje Kołobrzeg</h4><br>
+                        <div class="stripes">
+                            <span class="det-name">Powierzchnia</span><span class="det-value">40 m2</span>
+                            <div class="light"><span class="det-name light">Lokalizacja</span><span class="det-value">Kołobrzeg</span></div>
+                            <span class="det-name">Ulica</span><span class="det-value">Rolna</span>
+                            <div class="light"> <span class="det-name">Liczba pokoi</span><span class="det-value">4</span></div>
+                            <span class="det-name">Kondygnacja</span><span class="det-value">4</span>
+                            <div class="light"><span class="det-name">Balkon</span><span class="det-value">brak</span></div>
+                        </div>
+                        <br>
+                        <span>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+                <div class="offer">
+                    <div class="img-wrapper">
+                        <img src="Content/img/photo-02.jpeg">
+                        <div class="btn-place"><button type="button" class="btn">Chcę kupić</button></div>
+                        <span class="price">cena: 1 600 000 zł</span>
+                    </div>
+                    <div class="offer-details">
+                        <h4>Apartament w Koszalinie</h4>
+                        <br>
+                        <div class="stripes">
+                            <span class="det-name">Powierzchnia</span><span class="det-value">40 m2</span>
+                            <div class="light"><span class="det-name light">Lokalizacja</span><span class="det-value">Kołobrzeg</span></div>
+                            <span class="det-name">Ulica</span><span class="det-value">Rolna</span>
+                            <div class="light"> <span class="det-name">Liczba pokoi</span><span class="det-value">4</span></div>
+                            <span class="det-name">Kondygnacja</span><span class="det-value">4</span>
+                            <div class="light"><span class="det-name">Balkon</span><span class="det-value">brak</span></div>
+                        </div>
+                        <br>
+                        <span>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-4">
+                <div class="offer">
+                    <div class="img-wrapper">
+                        <img src="Content/img/photo-03.jpg">
+                        <div class="btn-place"><button type="button" class="btn" disabled>Chcę kupić</button></div>
+                        <span class="price">cena: 120 000 zł</span>
+                    </div>
+                    <div class="offer-details">
+                        <h4>Kawalerka</h4><br>
+                        <div class="stripes">
+                            <span class="det-name">Powierzchnia</span><span class="det-value">40 m2</span>
+                            <div class="light"><span class="det-name light">Lokalizacja</span><span class="det-value">Kołobrzeg</span></div>
+                            <span class="det-name">Ulica</span><span class="det-value">Rolna</span>
+                            <div class="light"> <span class="det-name">Liczba pokoi</span><span class="det-value">4</span></div>
+                            <span class="det-name">Kondygnacja</span><span class="det-value">4</span>
+                            <div class="light"><span class="det-name">Balkon</span><span class="det-value">brak</span></div>
+                        </div>
+                        <br>
+                        <span>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
+
+<!------Modal fot form add/edit offer----->
+<!-- Modal -->
+<div class="modal fade bs-example-modal-lg" id="edit-offer" tabindex="-1" role="dialog" aria-labelledby="EditOffer">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Edytuj ofertę</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Nagłówek oferty</label>
+                                <input type="text" class="form-control" placeholder="Enter email">
+
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label>Cena</label>
+                                <input type="text" class="form-control" placeholder="Enter email">
+
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label>Powierzchnia</label>
+                                <input type="text" class="form-control" placeholder="Enter email">
+
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label>Liczba pokoi</label>
+                                <input type="text" class="form-control" placeholder="Enter email">
+
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label>Kondygnacja</label>
+                                <input type="text" class="form-control" placeholder="Piętro">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>Miejscowość</label>
+                                <input type="text" class="form-control" placeholder="Enter email">
+
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>Ulica</label>
+                                <input type="text" class="form-control" placeholder="Enter email">
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-2">
+                            <p>Balkon</p>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="inlineCheckbox1" value="option1"> TAK
+                            </label><label class="checkbox-inline">
+                                <input type="checkbox" id="inlineCheckbox1" value="option1"> NIE
+                            </label>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="exampleFormControlFile1">Wybierz zdjęcie</label>
+                                <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p>Krótki opis</p>
+                            <textarea class="form-control" rows="3"></textarea>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Anuluj</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

@@ -8,11 +8,11 @@ namespace PropertyDealing.Models
 {
     public class LoginViewModel
     {
-        [Required(ErrorMessage = "Enter your email.")]
+        [Required(ErrorMessage = "Podaj swój email.")]
         [EmailAddress]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "Enter your password.")]
+        [Required(ErrorMessage = "Wpisz swoje hasło.")]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }

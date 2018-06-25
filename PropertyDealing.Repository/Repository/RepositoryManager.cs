@@ -11,20 +11,7 @@ namespace PropertyDealing.Repository.Repository
 {
     public class RepositoryManager : IRepositoryManager
     {
-        private IRepository<User> userRepository;
-        private IRepository<Property> propertyRepository;
-
-        public IRepository<User> UserRepository
-        {
-            get
-            {
-                if(userRepository == null)
-                {
-                    //userRepository = new Repository<User>(new DataAccess.PropertyDealingDbContext());
-                }
-                return userRepository;
-            }
-        }
+        private IRepository<Property> propertyRepository;    
 
         public IRepository<Property> PropertyRepository
         {
@@ -32,7 +19,7 @@ namespace PropertyDealing.Repository.Repository
             {
                 if(propertyRepository == null)
                 {
-
+                    propertyRepository = new PropertyRepository(new DataAccess.PropertyDealingDbContext());
                 }
                 return propertyRepository;
             }
